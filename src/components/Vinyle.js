@@ -30,7 +30,6 @@ class Vinyle extends Component {
   choisirAleatoirementUnVinyle = (tableVinyles) => {
     const nbAleatoire = Math.floor(Math.random() * tableVinyles.length);
     this.setState({ vinyle: tableVinyles[nbAleatoire].basic_information });
-    console.log(this.state.vinyle);
   };
 
   render() {
