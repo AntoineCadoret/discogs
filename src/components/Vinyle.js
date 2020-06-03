@@ -47,6 +47,18 @@ class Vinyle extends Component{
             return <ListGroup.Item>{artist.name}</ListGroup.Item>
         });
 
+        const genres = [];
+
+        for(let genreName in this.state.vinyle.genres){
+          genres.push({
+            id:genreName, 
+            name : this.state.vinyle.genres[genreName]
+          });
+        }
+        const genreOutput = genres.map((genre) => {
+            return <ListGroup.Item>{genre.name}</ListGroup.Item>
+        });
+
         const tbVinyles = this.state.vinyles;
           return(
             <div className="vinyle" style={{maxWidth: '500px', margin: '0 auto'}}>
@@ -54,10 +66,11 @@ class Vinyle extends Component{
                 <Card style={{marginTop: '30px'}}>
                     <Card.Body>
                       <Card.Title>{this.state.vinyle.title}</Card.Title>
-                      <Card.Subtitle>{this.state.vinyle.year}</Card.Subtitle>
-
-                      <ListGroup>{artistOutput}</ListGroup>
-                      <Card.Text>AuthorAuthorAuthorAuthorAuthorAuthor</Card.Text>
+                      <Card.Subtitle style={{marginBottom: '20px'}}>{this.state.vinyle.year}</Card.Subtitle>
+                      <Card.Header>Par:</Card.Header>
+                      <ListGroup style={{marginBottom: '40px'}}>{artistOutput}</ListGroup>
+                      <Card.Header>Genres:</Card.Header>
+                      <ListGroup>{genreOutput}</ListGroup>
                     </Card.Body>
                 </Card>
             </div>
